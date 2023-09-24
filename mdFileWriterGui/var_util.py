@@ -2,6 +2,8 @@ WINDOW_TITLE = "md file writer" # name of the app in the titlebar
 WINDOW_WIDTH = 1100 # main window width
 WINDOW_HEIGHT = 700 # main window height
 
+ELEMENT_LIST_WIDTH = 270
+
 ELEMENT_IN_LIST_WIDTH = 230 # width of single element in list
 ELEMENT_IN_LIST_HEIGHT = 70 # height
 

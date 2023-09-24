@@ -18,14 +18,7 @@ root.configure(bg=vu.COLOR_BACKGOUND)
 # create menu bar
 w.MenuBar(root)
 
-
-# Create a frame
-frame_list = w.tk.Frame(root, width=250, height=700, bg=vu.COLOR_LIST)
-frame_list.place(x=850, y=0)
-frame_list.pack_propagate(False)
-
-for i in element_list:
-    w.SingleElement(frame_list)
+w.ElementListGui(root,element_list)
 
 
 # start loop
