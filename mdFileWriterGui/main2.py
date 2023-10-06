@@ -36,6 +36,7 @@ class MainApp(tk.Tk):
         # create main frame
         self.main_frame = MainFrame(self)
         
+        
     def cmd_barMenu_new(self):
         print('cmd_barMenu_new')
 
@@ -74,36 +75,40 @@ class ListFrame(tk.Frame):
         self.pack_propagate(False)
         
         # add headline
-        self.label = tk.Label(self, text="Left Frame", bg=config.COLOR_1)
-        self.label.pack(pady=10)
+        self.label = tk.Label(self, text="Element list",
+                              bg=config.COLOR_1, fg=config.TEXT_COLOR_1,
+                              font=("Arial", 14), anchor="w")
+        self.label.pack(fill=tk.BOTH, padx=10, pady=(10,5))
     
+        # add explain text after headline
+        self.label = tk.Label(self, text="Create and modify your element list.",
+                              bg=config.COLOR_1, fg=config.TEXT_COLOR_2,
+                              font=("Arial", 10), anchor="w")
+        self.label.pack(fill=tk.BOTH, padx=10, pady=(0,10))
         
-        style = ttk.Style()
-        style.configure("Custom.Treeview", font=("Arial", 20))
-        tree = ttk.Treeview(self, style="Custom.Treeview")
-        tree.pack()
 
-        # Add columns
-        tree["columns"] = ("Index", "Type", "Content")
+        # add element tree
+        tree = ttk.Treeview(self, style="Custom.Treeview", columns=("Index", "Type", "Text"), show="headings")
+        tree.pack(fill=tk.BOTH, padx=10,pady=(0,10),expand=True)
 
         # Define column properties
-        tree.column("#0", width=40, minwidth=40)
-        tree.column("#1", width=50, minwidth=30)
-        tree.column("#2", width=50, minwidth=30)
-        # # Create headings
-        tree.heading("#0", text="Index", anchor="w")
-        tree.heading("#1", text="Type", anchor="center")
-        tree.heading("#2", text="Content", anchor="w")
-        
+        tree.column("Index", width=50, anchor="center")
+        tree.column("Type", width=70, anchor="center")
+        tree.column("Text", anchor="w")
+
+        # Create headings
+        tree.heading("Index", text="Index")
+        tree.heading("Type", text="Type")
+        tree.heading("Text", text="Text")
+  
+
         # Add sample elements
         for i in range(5):
             tree.insert("", "end", text=f"Item {i}", values=(i, "Type", f"Content {i}"))
 
-
         
-    def on_button_click(self):
-        # Handle button click in left frame
-        pass
+        
+
 
 
 
