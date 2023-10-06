@@ -1,3 +1,5 @@
+SHOW_FRAME_STROKE = 1 # 1 or 0, 1 -> show a thin stroke around the frames, 0 -> disable
+
 WINDOW_TITLE = "md file writer" # name of the app in the titlebar
 WINDOW_WIDTH = 1100 # main window width
 WINDOW_HEIGHT = 700 # main window height

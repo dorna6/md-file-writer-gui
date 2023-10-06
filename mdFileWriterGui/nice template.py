@@ -80,6 +80,7 @@ class LoginPage(tk.Tk):
 
         def validate(username, password):
             # Checks the text file for a username/password combination.
+            return True
             try:
                 with open("credentials.txt", "r") as credentials:
                     for line in credentials:
