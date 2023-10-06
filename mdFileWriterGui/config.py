@@ -4,15 +4,11 @@ WINDOW_TITLE = "md file writer" # name of the app in the titlebar
 WINDOW_WIDTH = 1100 # main window width
 WINDOW_HEIGHT = 700 # main window height
 
-ELEMENT_LIST_WIDTH = 270
-
-ELEMENT_IN_LIST_WIDTH = 230 # width of single element in list
-ELEMENT_IN_LIST_HEIGHT = 70 # height
-
+ELEMENT_LIST_WIDTH = 350
 
 COLOR_BACKGOUND = '#ECECEC' # background color
-COLOR_LIST = '#CBCFD1'
-COLOR_ELEMENT_LIST = '#ECECEC' # background color of element in list
+COLOR_1 = '#CBCFD1'
+COLOR_2 = '#ECECEC'
 
 TEXT_COLOR_1 = '#1C1C1C'
 TEXT_COLOR_2 = '#595959'
