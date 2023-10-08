@@ -3,11 +3,12 @@ from tkinter import ttk
 import config 
 
 
-element_list = [['headline1','intro'],
-                ['text','welcome to my app'],
-                ['headline2','installing'],
-                ['text','pip install my app'],]
+# SECTION: global variabels
+element_list = [['headline1','My app'],
+                ['headline2','Intro'],
+                ['text','welcome to my app'],]
 
+selected_element_index = 0
 
 
 # SECTION: main app
@@ -86,7 +87,8 @@ class ListFrame(tk.Frame):
         # add element tree
         self.tree = ttk.Treeview(self, style="Custom.Treeview", columns=("Index", "Type", "Text"), show="headings")
         self.tree.pack(fill=tk.BOTH, padx=10,pady=(0,10),expand=True)
-
+        self.tree.bind("<<TreeviewSelect>>", self.selected_tree_index)
+        
         # Define column properties
         self.tree.column("Index", width=50, anchor="center")
         self.tree.column("Type", width=75, anchor="w")
@@ -136,6 +138,12 @@ class ListFrame(tk.Frame):
         # Add sample elements
         for i in range(len(element_list)):
             self.tree.insert("", "end", text=f"Item {i}", values=(i, element_list[i][0], element_list[i][1]))
+
+    def selected_tree_index(self,event):
+        global selected_element_index
+        selected_item = self.tree.focus()
+        selected_element_index = self.tree.index(selected_item)
+        print("selected_tree_index " + str(selected_element_index))
 
 # SECTION: element frame
 class ElementFrame(tk.Frame):
